@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<manifest xmlns="http://tizen.org/ns/packages" api-version="4.0" package="org.example.uimqtt" version="1.0.0">
+    <profile name="wearable"/>
+    <ui-application appid="org.example.uimqtt" exec="uimqtt" multiple="false" nodisplay="false" taskmanage="true" type="capp">
+        <label>uimqtt</label>
+        <icon>uimqtt.png</icon>
+        <background-category value="background-network"/>
+    </ui-application>
+    <privileges>
+        <privilege>http://tizen.org/privilege/internet</privilege>
+    </privileges>
+</manifest>
