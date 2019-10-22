@@ -1,0 +1,45 @@
+/*
+ * log.h
+ *
+ *  Created on: Aug 6, 2018
+ *      Author: jiwon
+ */
+
+#ifndef __LOG_H__
+#define  __LOG_H__
+
+//Dodano odavde
+#include <app.h>
+#include <Elementary.h>
+#include <system_settings.h>
+#include <efl_extension.h>
+//Dodano dovde
+#include <dlog.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef LOG_TAG
+#undef LOG_TAG
+#endif
+#define LOG_TAG "MQTT"
+
+#define ERR(fmt, args...) dlog_print(DLOG_ERROR, LOG_TAG, "%s : %s(%d) > "fmt"\n", rindex(__FILE__, '/') + 1, __func__, __LINE__, ##args)
+#define WARN(fmt, args...) dlog_print(DLOG_WARN, LOG_TAG, "%s : %s(%d) > "fmt"\n", rindex(__FILE__, '/') + 1, __func__, __LINE__, ##args)
+#define INFO(fmt, args...)  dlog_print(DLOG_INFO, LOG_TAG, "%s : %s(%d) > "fmt"\n", rindex(__FILE__, '/') + 1, __func__, __LINE__, ##args)
+#define DBG(fmt, args...) dlog_print(DLOG_DEBUG, LOG_TAG, "%s : %s(%d) > "fmt"\n", rindex(__FILE__, '/') + 1, __func__, __LINE__, ##args)
+
+#define FN_CALL dlog_print(DLOG_DEBUG, LOG_TAG, ">>>>>>>> called")
+#define FN_END dlog_print(DLOG_DEBUG, LOG_TAG, "<<<<<<<< ended")
+
+#ifdef __cplusplus
+}
+#endif
+
+//Dodano odavde
+#if !defined(PACKAGE)
+#define PACKAGE "org.example.mqtt"
+#endif
+//Dodano dovde
+#endif /* __LOG_H__ */
